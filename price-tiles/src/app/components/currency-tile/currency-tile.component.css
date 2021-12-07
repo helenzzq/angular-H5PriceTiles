@@ -11,36 +11,50 @@ select{
     margin-right: 5px;
 }
 
-.buy-btn{
+.trade-btn{
     display: inline-block;
     margin-left: 5px;
-    width: 35%;
+    width: 40%;
     height: 120px;
     padding: 6px 12px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
-    text-align: center;
     white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
     text-decoration: none;
-
-    color: #333;
-    background-color: #ccc;
-    border-color: black;
+    color: rgb(0, 121, 0);
+    background-color: #000000;
+    border-color: rgb(145, 145, 145);
+      box-shadow: 0 2px #999;
 }
-
+.trade-btn:active{
+    background-color: black;
+    box-shadow: 0 1px #999;
+    text-shadow: rgb(61, 61, 61);
+    transform: translateY(1px);
+}
+.trade-type{
+    text-align: center;
+}
+.left-num{
+    float:left;
+}
+.right-num{
+    float:right;
+}
+.real-price{
+    font-size: 50px;
+    text-align: center;
+}
 
 .currency-pair {
     display: flex;
@@ -56,10 +70,10 @@ select{
 
 
 
-.index-value {
+.red {
     color: rgb(194, 47, 47);
 }
 
-.gr {
+.green {
     color: rgb(102, 194, 41);
 }
