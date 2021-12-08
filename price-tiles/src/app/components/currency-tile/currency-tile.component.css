@@ -6,9 +6,7 @@ h3 {
     border-bottom: 1px solid rgb(207, 207, 207);
 }
 select{
-    width:65%;
-    margin-bottom: 0;
-    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 #outer{
@@ -28,33 +26,16 @@ select{
     width:5%;
 }
 
-.btn-add{
-    width:50%;
-    height: 80px;
-    background-color: #04AA6D;
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 50px;
-    margin: 4px 3px;
-    border-radius: 50%;
-}
-
 
 .trade-btn{
     display: inline-block;
     margin-left: 0;
-    width: 35%;
     height: 100px;
-    padding: 6px 6px;
+    width: 120px;
+    padding-top:0;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: 400;
-    line-height: 1;
-    white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
@@ -67,7 +48,7 @@ select{
     color: rgb(0, 121, 0);
     background-color: #000000;
     border-color: rgb(145, 145, 145);
-      box-shadow: 0 2px #999;
+    box-shadow: 0 2px #999;
 }
 .trade-btn:active{
     background-color: black;
@@ -77,25 +58,29 @@ select{
 }
 .trade-type{
     text-align: center;
+    font-size: 15px;
 }
 .left-num{
     float:left;
+    margin-right: 10px;
+    font-size: 50%;
 }
 .right-num{
     float:right;
+    font-size: 50%;
 }
 .real-price{
-    font-size: 50px;
+    font-size: 320%;
     text-align: center;
 }
 
 .currency-pair {
     display: flex;
     flex-direction: column;
+    width: auto;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
     background-color: rgb(255, 255, 255);
-    width: 300%;
-    height: 200px;
+    height: 170px;
     margin: 5px;
     border-radius: 3px;
     padding: 5px;
@@ -104,8 +89,10 @@ select{
 
 .red {
     color: rgb(226, 23, 23);
+    margin-left: 5px;
 }
 
 .green {
     color: rgb(102, 194, 41);
+    
 }

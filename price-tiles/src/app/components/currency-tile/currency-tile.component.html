@@ -1,14 +1,6 @@
 <!--Single Currency Pair Tile-->
-<div>
+
   <div class="currency-pair">
-
-    <div id="outer">
-      <button type="button" class="btn btn-primary" 
-      (click)="onChoseCurrencyPair()">GBP/EUR</button>
-      <button type="button" class="btn btn-delete"
-      (click)="onDeleteTrade()">X</button>
-    </div>
-
     <select>
       <option value="EUR/USD">EUR/USD</option>
       <option value="EUR/GBP">EUR/GBP</option>
@@ -23,33 +15,19 @@
         <option value="">100,000</option>
       </select>
     </div>
-
-    <!--Single Bid Button-->
-    <!-- <div>
-      <div class="trade-btn green" role="button">
+    <div>
+      <button type="button" class="trade-btn green" >        
         <p class="trade-type">Bid</p>
         <div class="left-num">10.0</div>
         <div class="right-num">20.0</div>
-        <div class="real-price">93</div>
-      </div>
-      <div class="trade-btn red"role="button">      
-        <p class="trade-type">Ask</p>
-        <div class="left-num">10.0</div>
-        <div class="right-num">20.0</div>
-        <div class="real-price">93</div></div>
-    </div> -->
-    <div>
-      <button type="button" class="trade-btn green" 
-      (click)="onShowTradeDetail()">Bid</button>
+        <div class="real-price">93</div></button>
       <button type="button" class="trade-btn red"
-      (click)="onShowTradeDetail()">Ask</button>
+      ><p class="trade-type">Ask</p>
+      <div class="left-num">10.0</div>
+      <div class="right-num">20.0</div>
+      <div class="real-price">93</div></button>
     </div>
 
   </div>
 
-  <div>
-    <button type="btn" class="btn btn-add" 
-    (click)="onAddTrade()">+</button>
-  </div>
 
-</div>
