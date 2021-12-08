@@ -8,23 +8,28 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CurrencyTile } from './components/currency-tile/currency-tile.component';
 import { TradePanel } from './components/trade-panel/trade-panel.component';
+import { TradeInfo } from './components/trade-info/trade-info.components';
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 
-import {MatSelectModule} from '@angular/material/select';
-
-import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
     BannerComponent,
     CurrencyTile,
     TradePanel,
+    TradeInfo
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
     MatSelectModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

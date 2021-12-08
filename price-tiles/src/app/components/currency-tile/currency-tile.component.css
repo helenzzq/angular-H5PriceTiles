@@ -1,26 +1,59 @@
 
 
 h3 {
-    text-align: center;
+    text-align: left;
     font-weight: 900;
     border-bottom: 1px solid rgb(207, 207, 207);
 }
 select{
-    width:100%;
-    margin-bottom:5px;
+    width:65%;
+    margin-bottom: 0;
     margin-right: 5px;
 }
 
+#outer{
+    display: block;
+
+}
+
+.btn-primary{
+    width:60%;
+}
+
+.btn-primary.active{
+    width:65%;
+}
+
+.btn-delete{
+    width:5%;
+}
+
+.btn-add{
+    width:50%;
+    height: 80px;
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    margin: 4px 3px;
+    border-radius: 50%;
+}
+
+
 .trade-btn{
     display: inline-block;
-    margin-left: 5px;
-    width: 40%;
-    height: 120px;
-    padding: 6px 12px;
+    margin-left: 0;
+    width: 35%;
+    height: 100px;
+    padding: 6px 6px;
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 1.42857143;
+    line-height: 1;
     white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;
@@ -69,9 +102,8 @@ select{
 }
 
 
-
 .red {
-    color: rgb(194, 47, 47);
+    color: rgb(226, 23, 23);
 }
 
 .green {

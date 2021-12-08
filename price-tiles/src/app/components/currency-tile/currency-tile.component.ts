@@ -12,10 +12,27 @@ import { Component, OnInit } from '@angular/core';
 export class CurrencyTile implements OnInit {
 
 
+  allowNewPair = false;
+
 
   ngOnInit(): void {
 
   }
+  onChoseCurrencyPair() {
+    this.allowNewPair = true;
+  }
+
+  onAddTrade() {
+  }
+
+  onDeleteTrade() {
+
+  }
+
+  onShowTradeDetail() {
+
+  }
+
 
 
 }

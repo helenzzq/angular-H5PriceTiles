@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  netWorthToday = 0
+  netWorthToday = 0;
   todaysDate = new Date();
 
   ngOnInit(): void {
