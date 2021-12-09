@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CurrencyTile } from './components/currency-tile/currency-tile.component';
 import { TradePanel } from './components/trade-panel/trade-panel.component';
-import { TradeInfo } from './components/trade-info/trade-info.components';
+import { TradeHistory } from './components/trade-info/trade-history.component';
+import { DisplayTradeHistoryService } from './display-trade-history.service';
 
+// Angular Material Module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -21,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     BannerComponent,
     CurrencyTile,
     TradePanel,
-    TradeInfo
+    TradeHistory
   ],
   imports: [
     BrowserModule,
@@ -29,9 +33,12 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatSelectModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
 
   ],
-  providers: [],
+  providers: [DisplayTradeHistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

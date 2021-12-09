@@ -13,7 +13,6 @@ export class TradePanel implements OnInit {
   currencyPair: string = 'GBP/EUR';
   notional: number = 100000;
 
-  getCurrencyPair() {}
   ngOnInit(): void {
 
   }
