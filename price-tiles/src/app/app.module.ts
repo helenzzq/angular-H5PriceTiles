@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CurrencyTile } from './components/currency-tile/currency-tile.component';
 import { TradePanel } from './components/trade-panel/trade-panel.component';
-import { TradeInfo } from './components/trade-info/trade-info.components';
+import { TradeInfo } from './components/trade-history/trade-info.components';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
