@@ -31,8 +31,8 @@
   <p>Notional:{{tradeInfo.notional}}</p>
   <div class="btns">
 
-    <app-trade-button id ="green" [tradeInfo]="tradeInfo" [price]="bidPrice"></app-trade-button>
-    <app-trade-button id ="red" [tradeInfo]="tradeInfo" [price]="askPrice"></app-trade-button>
+    <app-trade-button  id = "bid-btn"[tradeInfo]="tradeInfo" [price]="bidPrice"></app-trade-button>
+    <app-trade-button id = "ask-btn" [tradeInfo]="tradeInfo" [price]="askPrice"></app-trade-button>
 
   </div>
 </div>

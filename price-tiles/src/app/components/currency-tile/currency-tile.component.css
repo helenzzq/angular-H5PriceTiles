@@ -73,14 +73,15 @@ h3 {
 }
 
 
-#red {
-    color: rgb(226, 23, 23);
-    margin-left: 5px;
-}
 
-#green {
+
+#bid-btn {
     color: rgb(102, 194, 41);
     
+}
+#ask-btn{
+    color: red;
+    margin-left: 10px;
 }
 
 .example-container .mat-form-field + .mat-form-field {
