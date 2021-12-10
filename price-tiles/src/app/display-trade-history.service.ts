@@ -2,7 +2,7 @@ import { Injectable, Input } from '@angular/core';
 import { Observable, of, merge, Subject, BehaviorSubject } from 'rxjs';
 import { scan, startWith, map, tap, combineLatest, switchMap, skipWhile, shareReplay, debounceTime, publish, refCount, share } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
-import { TradeHistoryComponenet } from './components/trade-history/trade-history.component';
+import { TradeHistoryComponenet } from './components/trade-info/trade-info.component';
 
 export interface TradeInfoItem{
     currencyPair: string;
