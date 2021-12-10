@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CurrencyTile } from './components/currency-tile/currency-tile.component';
 import { TradePanel } from './components/trade-panel/trade-panel.component';
-import { TradeHistory } from './components/trade-info/trade-history.component';
+import { TradeHistoryComponenet } from './components/trade-history/trade-history.component';
 import { DisplayTradeHistoryService } from './display-trade-history.service';
+import { RandomNumGenerator } from './random-num-generator.service';
 
 // Angular Material Module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,11 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TradeButtonComponent } from './components/currency-tile/trade-button/trade-button.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     BannerComponent,
     CurrencyTile,
     TradePanel,
-    TradeHistory
+    TradeHistoryComponenet,
+    TradeButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +43,10 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-
+    MatTableModule,
+    MatTabsModule
   ],
-  providers: [DisplayTradeHistoryService],
+  providers: [DisplayTradeHistoryService,RandomNumGenerator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

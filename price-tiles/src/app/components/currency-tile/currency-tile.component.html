@@ -3,18 +3,16 @@
 <div class="currency-pair">
   <mat-form-field appearance="fill" >
     <mat-label>Currency Pair</mat-label>
-    <mat-select class="select">
+    <mat-select class="select" [(value)]="tradeInfo.currencyPair">
       <mat-option *ngFor="let cp of currencyPairs" [value]="cp.name">
         {{cp.name}}
       </mat-option>
     </mat-select> 
   </mat-form-field>
 
-
-
     <mat-form-field appearance="fill" >
       <mat-label>Amount</mat-label>
-      <mat-select class="select">
+      <mat-select class="select" [(value)]="tradeInfo.notional">
         <mat-option *ngFor="let quantity of quantities" [value]="quantity.value">
           {{quantity.value}}
         </mat-option>
@@ -24,28 +22,17 @@
   
   <mat-form-field appearance="fill" floatLabel="always">
     <mat-label>Amount</mat-label>
-    <input matInput type="number" class="example-right-align" placeholder="0">
+    <input matInput type="number" [(ngModel)]="tradeInfo.notional"class="example-right-align" placeholder="0" >
     <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
   </mat-form-field>
-
+  <!--Test Trade Info-->
+  <p>CurrencyPair:{{tradeInfo.currencyPair}}</p>
+  <p>Notional:{{tradeInfo.notional}}</p>
   <div class="btns">
-    <button
-      type="button"
-      class="trade-btn green"
-      role="button"
-      (click)="addTradeEntry()"
-    >
-      <p class="trade-type">Bid</p>
-      <div class="left-num">10.0</div>
-      <div class="right-num">20.0</div>
-      <div class="real-price">93</div>
-    </button>
-    <button type="button" class="trade-btn red" (click)="addTradeEntry()">
-      <p class="trade-type">Ask</p>
-      <div class="left-num">10.0</div>
-      <div class="right-num">20.0</div>
-      <div class="real-price">93</div>
-    </button>
+
+    <app-trade-button id ="green" [tradeInfo]="tradeInfo" [price]="bidPrice"></app-trade-button>
+    <app-trade-button id ="red" [tradeInfo]="tradeInfo" [price]="askPrice"></app-trade-button>
+
   </div>
 </div>

@@ -73,12 +73,12 @@ h3 {
 }
 
 
-.red {
+#red {
     color: rgb(226, 23, 23);
     margin-left: 5px;
 }
 
-.green {
+#green {
     color: rgb(102, 194, 41);
     
 }
