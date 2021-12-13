@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { TradeInfoItem } from 'src/app/display-trade-history.service';
 import { TradeInfo } from 'src/app/shared/trade-info.model';
 
@@ -12,25 +12,33 @@ import { TradeInfo } from 'src/app/shared/trade-info.model';
   
 export class TradePanel implements OnInit {
 
-  defaultTradeInfo: TradeInfo = new TradeInfo('GBP/EUR', 10000, 95, 60);
-  tradeInfoList: TradeInfo[] = [this.defaultTradeInfo];
+  tile: TradeInfo=
+  {
+    forexPairs: new Array(), 
+    notionals: new Array(),
+    bidPrice: 0, 
+    askPrice: 0, 
+    direction: "Bid", 
+    id: "some id",
+    remove: false
+  };
+  @Input() tradeInfoList: TradeInfo[] = [];
 
 
   ngOnInit(): void {}
   
-  onAddTrade(trade: TradeInfo) {
-    this.tradeInfoList.push(this.defaultTradeInfo);
-  }
-  onDeleteTrade() {
+  onAddTrade() {
+
+    this.tradeInfoList.push(this.tile);
 
   }
-
-
-  @Output() tradeAdded = new EventEmitter<TradeInfo>();
-  // onAddTrade(trade: TradeInfo){
-  //   this.tradeAdded.emit(trade);
-  // }
-  // onAddTrade() {}
-  // onDeleteTrade(){}
-
+  onDeleteTrade(currentTile: TradeInfo) {
+    currentTile.remove=true;
+    if(this.tradeInfoList.indexOf(currentTile) === 0){
+      this.tradeInfoList.splice(0,1);
+    }
+    else{
+      this.tradeInfoList.splice(this.tradeInfoList.indexOf(currentTile)-1,1);
+    }
+  }
 }

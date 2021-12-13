@@ -8,13 +8,24 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CurrencyTile } from './components/currency-tile/currency-tile.component';
 import { TradePanel } from './components/trade-panel/trade-panel.component';
-import { TradeInfo } from './components/trade-info/trade-info.components';
+import { TradeHistoryComponenet } from './components/trade-history/trade-history.component';
+import { DisplayTradeHistoryService } from './display-trade-history.service';
+import { RandomNumGenerator } from './random-num-generator.service';
+import { MatChipsModule } from '@angular/material/chips';
 
-
+// Angular Material Module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TradeButtonComponent } from './components/currency-tile/trade-button/trade-button.component';
+import { HighlightDirective } from './shared/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     BannerComponent,
     CurrencyTile,
     TradePanel,
-    TradeInfo
+    TradeHistoryComponenet,
+    TradeButtonComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
@@ -30,9 +43,15 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatSelectModule,
     FormsModule,
-
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatChipsModule
   ],
-  providers: [],
+  providers: [DisplayTradeHistoryService,RandomNumGenerator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

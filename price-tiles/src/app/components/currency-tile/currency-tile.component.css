@@ -5,57 +5,24 @@ h3 {
     font-weight: 900;
     border-bottom: 1px solid rgb(207, 207, 207);
 }
-select{
-    width:65%;
-    margin-bottom: 0;
-    margin-right: 5px;
+.select{
+    margin-bottom: 5px;
+    border: #000000;
 }
 
-#outer{
-    display: block;
-
-}
-
-.btn-primary{
-    width:60%;
-}
-
-.btn-primary.active{
-    width:65%;
-}
-
-.btn-delete{
-    width:5%;
-}
-
-.btn-add{
-    width:50%;
-    height: 80px;
-    background-color: #04AA6D;
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
+.btns{
     display: inline-block;
-    font-size: 50px;
-    margin: 4px 3px;
-    border-radius: 50%;
+    width: auto;
 }
-
-
 .trade-btn{
     display: inline-block;
     margin-left: 0;
-    width: 35%;
     height: 100px;
-    padding: 6px 6px;
+    width: auto;
+    padding-top:0;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: 400;
-    line-height: 1;
-    white-space: nowrap;
-    vertical-align: middle;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
@@ -67,7 +34,7 @@ select{
     color: rgb(0, 121, 0);
     background-color: #000000;
     border-color: rgb(145, 145, 145);
-      box-shadow: 0 2px #999;
+    box-shadow: 0 2px #999;
 }
 .trade-btn:active{
     background-color: black;
@@ -77,35 +44,61 @@ select{
 }
 .trade-type{
     text-align: center;
+    font-size: 15px;
 }
 .left-num{
     float:left;
+    margin-right: 50px;
+    font-size: 50%;
 }
 .right-num{
     float:right;
+    font-size: 50%;
 }
 .real-price{
-    font-size: 50px;
+    font-size: 320%;
     text-align: center;
 }
 
 .currency-pair {
     display: flex;
     flex-direction: column;
+    width: auto;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
-    background-color: rgb(255, 255, 255);
-    width: 300%;
-    height: 200px;
+    background-color: white;
+    height: auto;
     margin: 5px;
     border-radius: 3px;
     padding: 5px;
 }
 
-
-.red {
-    color: rgb(226, 23, 23);
+.x-button{
+    margin-top: 100%;
 }
 
-.green {
+
+#bid-btn {
     color: rgb(102, 194, 41);
+    
 }
+#ask-btn{
+    color: red;
+    margin-left: 10px;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }

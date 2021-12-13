@@ -2,29 +2,37 @@
 <div class="container-fluid">
   <div class="row">
 
-      <h3>Currency Buy and Sell</h3>
+      <h2>Currency Buy and Sell</h2>
 
-      <div id="index-box">
+      <div class="col-sm-3"
+      *ngFor="let trade of tradeInfoList">
         <currency-tile></currency-tile>
-        <currency-tile></currency-tile>
-        <currency-tile></currency-tile>
-
-        <div>
-          <div
-          *ngFor="let trade of tradeInfoList"
-          >{{trade.amount}}</div>
-
-          <button class="btn btn-success" type="submit" 
-          *ngFor="let trade of tradeInfoList"
-          >{{trade.amount}}
-          (click)="onAddTrade(trade)">Add</button>
-
-          <button class="btn btn-danger" type="button" (click)="onDeleteTrade()">Delete</button>
-
-        </div>
-        
       </div>
 
-  </div>
+      <div class="col-sm-2">
+        <div class="buttons">
+          <button type="button" class="btn btn-success"
+          (click)="onAddTrade()">Add</button>
+        </div>
+      </div>
 
+      <div class="col-sm-2">
+        <mat-chip-list>
+          <mat-chip
+          *ngFor="let trade of tradeInfoList"
+          [removable]="true"
+          (removed)="onDeleteTrade(trade)">
+          <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+        </mat-chip>
+        </mat-chip-list>
+
+
+          <button type="button" class="btn btn-danger"
+          *ngFor="let trade of tradeInfoList"
+          (click)="onDeleteTrade(trade)">Delete</button>
+
+      </div>
+
+        
+  </div>
 </div>

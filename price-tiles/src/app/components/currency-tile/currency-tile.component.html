@@ -1,55 +1,45 @@
 <!--Single Currency Pair Tile-->
-<div>
-  <div class="currency-pair">
 
-    <div id="outer">
-      <button type="button" class="btn btn-primary" 
-      (click)="onChoseCurrencyPair()">GBP/EUR</button>
-      <button type="button" class="btn btn-delete"
-      (click)="onDeleteTrade()">X</button>
+<div class="currency-pair">
+  <div class="row">
+    <div class="col-sm-8">
+      <mat-form-field appearance="fill" >
+        <mat-label>Currency Pair</mat-label>
+        <mat-select class="select" [(value)]="tradeInfo.currencyPair">
+          <mat-option *ngFor="let cp of forexPairList" [value]="cp.forexPairName">
+            {{cp.forexPairName}}
+          </mat-option>
+        </mat-select> 
+      </mat-form-field>
     </div>
-
-    <select>
-      <option value="EUR/USD">EUR/USD</option>
-      <option value="EUR/GBP">EUR/GBP</option>
-      <option value="USD/CAD">USD/CAD</option>
-      <option value="AUD/CAD">AUD/CAD</option>
-      <option value="USD/JPY">USD/JPY</option>
-    </select>
-
-    <div>
-      <select>
-        <option value="">2000,000,000</option>
-        <option value="">100,000</option>
-      </select>
+    <div class="col-sm-2">  
+      <button mat-button
+      (click)="onDeleteTile()">X</button>
     </div>
-
-    <!--Single Bid Button-->
-    <!-- <div>
-      <div class="trade-btn green" role="button">
-        <p class="trade-type">Bid</p>
-        <div class="left-num">10.0</div>
-        <div class="right-num">20.0</div>
-        <div class="real-price">93</div>
-      </div>
-      <div class="trade-btn red"role="button">      
-        <p class="trade-type">Ask</p>
-        <div class="left-num">10.0</div>
-        <div class="right-num">20.0</div>
-        <div class="real-price">93</div></div>
-    </div> -->
-    <div>
-      <button type="button" class="trade-btn green" 
-      (click)="onShowTradeDetail()">Bid</button>
-      <button type="button" class="trade-btn red"
-      (click)="onShowTradeDetail()">Ask</button>
-    </div>
-
   </div>
 
-  <div>
-    <button type="btn" class="btn btn-add" 
-    (click)="onAddTrade()">+</button>
-  </div>
+    <mat-form-field appearance="fill" >
+      <mat-label>Amount</mat-label>
+      <mat-select class="select" [(value)]="tradeInfo.notional">
+        <mat-option *ngFor="let quant of notionals" [value]="quant.notional">
+          {{quant.notional}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
+  
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" [(ngModel)]="tradeInfo.notional"class="example-right-align" placeholder="0" >
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+  <!-- Test Trade Info
+  <p>CurrencyPair:{{tradeInfo.currencyPair}}</p>
+  <p>Notional:{{tradeInfo.notional}}</p> -->
+  <div class="btns">
+    <app-trade-button id="bid-btn" [tradeInfo]="tradeInfo" [price]="bidPrice"></app-trade-button>
+    <app-trade-button id="ask-btn" [tradeInfo]="tradeInfo" [price]="askPrice"></app-trade-button>
+
+  </div>
 </div>
