@@ -2,29 +2,20 @@
 <div class="container-fluid">
   <div class="row">
 
-      <h3>Currency Buy and Sell</h3>
+      <h2>Currency Buy and Sell</h2>
 
-      <div id="index-box">
-        <currency-tile></currency-tile>
-        <currency-tile></currency-tile>
-        <currency-tile></currency-tile>
-
-        <div>
-          <div
-          *ngFor="let trade of tradeInfoList"
-          >{{trade.amount}}</div>
-
-          <button class="btn btn-success" type="submit" 
-          *ngFor="let trade of tradeInfoList"
-          >{{trade.amount}}
-          (click)="onAddTrade(trade)">Add</button>
-
-          <button class="btn btn-danger" type="button" (click)="onDeleteTrade()">Delete</button>
-
-        </div>
-        
+      <div class="col-sm-3"
+      *ngFor="let trade of tradeInfoList">
+        <currency-tile [uuid]="trade.uuid"></currency-tile>
       </div>
 
-  </div>
+      <div class="col-sm-2">
+        <div class="buttons">
+          <button type="button" class="btn btn-success"
+          (click)="onAddTile()">Add</button>
+        </div>
+      </div>
 
+        
+  </div>
 </div>

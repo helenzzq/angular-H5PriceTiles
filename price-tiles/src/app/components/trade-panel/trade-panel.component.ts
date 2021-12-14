@@ -1,7 +1,9 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { ObjectUnsubscribedError } from 'rxjs';
 import { TradeInfoItem } from 'src/app/display-trade-history.service';
 import { TradeInfo } from 'src/app/shared/trade-info.model';
-
+import { TradePanelManagerService } from 'src/app/trade-panel-manager.service';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'trade-panel',
@@ -12,25 +14,27 @@ import { TradeInfo } from 'src/app/shared/trade-info.model';
   
 export class TradePanel implements OnInit {
 
-  defaultTradeInfo: TradeInfo = new TradeInfo('GBP/EUR', 10000, 95, 60);
-  tradeInfoList: TradeInfo[] = [this.defaultTradeInfo];
+
+  tradeInfoList?: TradeInfo[];
+  isDeleting=false;
+
+  constructor(private tradePanelManager:
+    TradePanelManagerService) { }
+
+  ngOnInit(): void {  
+    this.tradeInfoList = this.tradePanelManager.tradeInfoList;
+    
+    this.onAddTile();
+
+  }
 
 
-  ngOnInit(): void {}
   
-  onAddTrade(trade: TradeInfo) {
-    this.tradeInfoList.push(this.defaultTradeInfo);
-  }
-  onDeleteTrade() {
+  onAddTile() {
+
+    this.tradePanelManager.addCurrencyTile();
 
   }
 
-
-  @Output() tradeAdded = new EventEmitter<TradeInfo>();
-  // onAddTrade(trade: TradeInfo){
-  //   this.tradeAdded.emit(trade);
-  // }
-  // onAddTrade() {}
-  // onDeleteTrade(){}
 
 }
