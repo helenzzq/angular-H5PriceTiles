@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
-import { DisplayTradeHistoryService, TradeInfoItem } from "src/app/display-trade-history.service";
+import { TradeInfo } from "src/app/model/trade-info.model";
+import { DisplayTradeHistoryService,   } from "src/app/services/display-trade-history.service";
 
 @Component({
   selector: 'trade-history',
@@ -17,7 +18,7 @@ export class TradeHistoryComponenet implements OnInit {
 
   constructor(private displayTradeHistoryService:
     DisplayTradeHistoryService) { }
-  tradeInfo = <TradeInfoItem>{
+  tradeInfo = <TradeInfo>{
     currencyPair: "c",
     direction: "",
     dealRate: 0,
@@ -32,7 +33,7 @@ export class TradeHistoryComponenet implements OnInit {
   
 
   refreshTradeHistory(): void{
-    this.displayTradeHistoryService.tradeHistory$.subscribe((history: TradeInfoItem[]) => {
+    this.displayTradeHistoryService.tradeHistory$.subscribe((history: TradeInfo []) => {
       this.dataSource.data = history;
     })
   }

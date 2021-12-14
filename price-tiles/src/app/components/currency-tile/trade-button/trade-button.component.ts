@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DisplayTradeHistoryService, TradeInfoItem } from 'src/app/display-trade-history.service';
+import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
 import { price } from 'src/app/components/currency-tile/currency-tile.component';
+import { TradeInfo } from 'src/app/model/trade-info.model';
 
 
 
@@ -10,7 +11,7 @@ import { price } from 'src/app/components/currency-tile/currency-tile.component'
   styleUrls: ['./trade-button.component.css']
 })
 export class TradeButtonComponent implements OnInit {
-  @Input() tradeInfo!: TradeInfoItem;
+  @Input() tradeInfo!: TradeInfo;
   @Input() price!: price;
 
   constructor(private displayTradeHistoryService:
@@ -25,7 +26,7 @@ export class TradeButtonComponent implements OnInit {
   addTradeEntry() {
     this.tradeInfo.direction = this.price.tag;
     this.tradeInfo.dealRate = this.price.wholeNum;
-    var tradeEntry: TradeInfoItem = {
+    var tradeEntry: TradeInfo = {
       direction : this.price.tag,
       dealRate: this.price.wholeNum,
       notional: this.tradeInfo.notional,

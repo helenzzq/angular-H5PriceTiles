@@ -6,7 +6,7 @@
 
       <div class="col-sm-3"
       *ngFor="let trade of tradeInfoList">
-        <currency-tile [uuid]="trade.uuid"></currency-tile>
+        <currency-tile [uuid]="trade.uuid" [tradeInfo]="trade"></currency-tile>
       </div>
 
       <div class="col-sm-2">

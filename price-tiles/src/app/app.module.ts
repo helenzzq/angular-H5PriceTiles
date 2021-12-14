@@ -9,9 +9,9 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CurrencyTile } from './components/currency-tile/currency-tile.component';
 import { TradePanel } from './components/trade-panel/trade-panel.component';
 import { TradeHistoryComponenet } from './components/trade-history/trade-history.component';
-import { DisplayTradeHistoryService } from './display-trade-history.service';
-import { RandomNumGenerator } from './random-num-generator.service';
-import { TradePanelManagerService } from './trade-panel-manager.service';
+import { DisplayTradeHistoryService } from './services/display-trade-history.service';
+import { RandomNumGenerator } from './services/random-num-generator.service';
+import { TradePanelManagerService } from './services/trade-panel-manager.service';
 import { MatChipsModule } from '@angular/material/chips';
 
 // Angular Material Module

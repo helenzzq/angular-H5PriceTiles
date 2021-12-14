@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DisplayTradeHistoryService, TradeInfoItem } from 'src/app/display-trade-history.service';
-import { RandomNumGenerator } from 'src/app/random-num-generator.service';
-import { TradePanelManagerService } from 'src/app/trade-panel-manager.service';
+import { TradeInfo } from 'src/app/model/trade-info.model';
+import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
+import { RandomNumGenerator } from 'src/app/services/random-num-generator.service';
+import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.service';
 
 interface currencyPair {
   name: string;
@@ -30,14 +31,16 @@ export interface Tile {
   styleUrls: ['./currency-tile.component.css']
 })
 export class CurrencyTile implements OnInit {
-  @Input() uuid?:any;
+  @Input() uuid?: any;
+  @Input()
+  tradeInfo!: TradeInfo;
 
-  tradeInfo = <TradeInfoItem>{
-    currencyPair: "",
-    direction: "",
-    dealRate: 0,
-    notional: 0
-  };
+  // tradeInfo = < >{
+  //   currencyPair: "",
+  //   direction: "",
+  //   dealRate: 0,
+  //   notional: 0
+  // };
 
 
 
@@ -95,7 +98,7 @@ export class CurrencyTile implements OnInit {
   }
 
   onDeleteTile() {
-    this.tradePanelManager.deleteCurrencyTile(this.uuid)
+    this.tradePanelManager.deleteCurrencyTile(this.tradeInfo.uuid)
 
   }
 

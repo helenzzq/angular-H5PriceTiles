@@ -1,9 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { ObjectUnsubscribedError } from 'rxjs';
-import { TradeInfoItem } from 'src/app/display-trade-history.service';
-import { TradeInfo } from 'src/app/shared/trade-info.model';
-import { TradePanelManagerService } from 'src/app/trade-panel-manager.service';
-import { v4 as uuid } from 'uuid';
+
+import { TradeInfo } from 'src/app/model/trade-info.model';
+import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.service';
 
 @Component({
   selector: 'trade-panel',
