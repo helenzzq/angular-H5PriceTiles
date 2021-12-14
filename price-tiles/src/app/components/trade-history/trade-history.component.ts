@@ -25,6 +25,9 @@ export class TradeHistoryComponenet implements OnInit {
     notional: 0
 
   };
+
+
+
   ngOnInit(): void {
     this.displayTradeHistoryService.setTradeHistoryComponent(this);
     this.refreshTradeHistory();

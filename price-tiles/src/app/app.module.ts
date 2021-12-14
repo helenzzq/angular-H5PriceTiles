@@ -12,7 +12,8 @@ import { TradeHistoryComponenet } from './components/trade-history/trade-history
 import { DisplayTradeHistoryService } from './services/display-trade-history.service';
 import { RandomNumGenerator } from './services/random-num-generator.service';
 import { TradePanelManagerService } from './services/trade-panel-manager.service';
-import { MatChipsModule } from '@angular/material/chips';
+import { TradeButtonComponent } from './components/currency-tile/trade-button/trade-button.component';
+import { TradingPopUpComponent } from './components/trade-history/trading-pop-up/trading-pop-up.component';
 
 // Angular Material Module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,11 +23,10 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatButtonModule} from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
-import { TradeButtonComponent } from './components/currency-tile/trade-button/trade-button.component';
 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,8 @@ import { TradeButtonComponent } from './components/currency-tile/trade-button/tr
     CurrencyTile,
     TradePanel,
     TradeHistoryComponenet,
-    TradeButtonComponent
+    TradeButtonComponent,
+    TradingPopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,8 @@ import { TradeButtonComponent } from './components/currency-tile/trade-button/tr
     MatInputModule,
     MatTableModule,
     MatTabsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [DisplayTradeHistoryService,RandomNumGenerator,    TradePanelManagerService],
   bootstrap: [AppComponent]
