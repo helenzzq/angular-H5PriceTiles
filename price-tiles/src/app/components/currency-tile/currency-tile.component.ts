@@ -1,16 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { of } from 'rxjs';
+import { currencyPair, CURRENCY_PAIRS, QUANTITIES, quantity } from 'src/app/data';
 import { TradeInfo } from 'src/app/model/trade-info.model';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
 import { RandomNumGenerator } from 'src/app/services/random-num-generator.service';
 import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.service';
 
-interface currencyPair {
-  name: string;
-}
-
-interface quantity {
-  value: number;
-}
 
 export interface price{
   firstFourDigit: string;
@@ -35,31 +30,12 @@ export class CurrencyTile implements OnInit {
   @Input()
   tradeInfo!: TradeInfo;
 
-  // tradeInfo = < >{
-  //   currencyPair: "",
-  //   direction: "",
-  //   dealRate: 0,
-  //   notional: 0
-  // };
-
-
-
   bidPrice!: price;
   askPrice!: price;
 
-  currencyPairs: currencyPair[] = [
-    { name: 'EUR/USD' },
-    { name: 'EUR/GBP' },
-    { name: 'USD/CAD' },
-    { name: 'USD/JPY' },
-    { name: 'AUD/CAD' },
-  ];
+  currencyPairs: currencyPair[] = CURRENCY_PAIRS;
 
-  quantities: quantity[] = [
-    { value: 2000000000 },
-    { value: 100000 }
-
-  ]
+  quantities: quantity[] = QUANTITIES;
 
   constructor(private displayTradeHistoryService:
     DisplayTradeHistoryService, private numGeneratorService: RandomNumGenerator,private tradePanelManager:
