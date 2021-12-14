@@ -89,7 +89,7 @@ export class CurrencyTile implements OnInit {
   }
 
   onDeleteTile() {
-    this.tradePanelManager.deleteCurrencyTile(this.uuid);
+    this.tradePanelManager.deleteCurrencyTile(this.uuid)
 
   }
 

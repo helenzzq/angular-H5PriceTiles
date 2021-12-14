@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DisplayTradeHistoryService, TradeInfoItem } from 'src/app/display-trade-history.service';
-import { price } from '../currency-tile.component';
+import { price } from 'src/app/components/currency-tile/currency-tile.component';
 
 
 

@@ -15,6 +15,7 @@ import { v4 as uuid } from 'uuid';
 export class TradePanel implements OnInit {
 
 
+
   tradeInfoList?: TradeInfo[];
   isDeleting=false;
 
@@ -27,14 +28,10 @@ export class TradePanel implements OnInit {
     this.onAddTile();
 
   }
-
-
   
   onAddTile() {
 
     this.tradePanelManager.addCurrencyTile();
 
   }
-
-
 }

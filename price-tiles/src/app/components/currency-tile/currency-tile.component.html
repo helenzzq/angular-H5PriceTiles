@@ -34,9 +34,6 @@
     <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
   </mat-form-field>
-  <!--Test Trade Info-->
-  <p>CurrencyPair:{{tradeInfo.currencyPair}}</p>
-  <p>Notional:{{tradeInfo.notional}}</p>
   <div class="btns">
     <app-trade-button id="bid-btn" [tradeInfo]="tradeInfo" [price]="bidPrice"></app-trade-button>
     <app-trade-button id="ask-btn" [tradeInfo]="tradeInfo" [price]="askPrice"></app-trade-button>

@@ -12,6 +12,7 @@ import { TradeHistoryComponenet } from './components/trade-history/trade-history
 import { DisplayTradeHistoryService } from './display-trade-history.service';
 import { RandomNumGenerator } from './random-num-generator.service';
 import { TradePanelManagerService } from './trade-panel-manager.service';
+import { MatChipsModule } from '@angular/material/chips';
 
 // Angular Material Module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
