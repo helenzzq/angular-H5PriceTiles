@@ -25,8 +25,14 @@ export class TradeButtonComponent implements OnInit {
   addTradeEntry() {
     this.tradeInfo.direction = this.price.tag;
     this.tradeInfo.dealRate = this.price.wholeNum;
-    this.displayTradeHistoryService.addTradeEntry(this.tradeInfo);
-    console.log(this.tradeInfo);
+    var tradeEntry: TradeInfoItem = {
+      direction : this.price.tag,
+      dealRate: this.price.wholeNum,
+      notional: this.tradeInfo.notional,
+      currencyPair:this.tradeInfo.currencyPair
+
+    }
+    this.displayTradeHistoryService.addTradeEntry(tradeEntry);
   }
 
 }

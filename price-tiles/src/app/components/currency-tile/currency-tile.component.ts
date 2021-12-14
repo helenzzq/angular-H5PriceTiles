@@ -63,14 +63,20 @@ export class CurrencyTile implements OnInit {
     TradePanelManagerService) { }
 
   ngOnInit():void {
+
+    this.randomGeneratePrice();
+    setInterval(() => {         
+      this.randomGeneratePrice();
+    }, 5000);
+  }
+  private randomGeneratePrice():void {
     var priceLst = this.numGeneratorService.generateMultipleRandomNum(2, 5);
-    this.bidPrice = this.initPrice(priceLst[1]);
-    this.askPrice = this.initPrice(priceLst[0]);
+    this.bidPrice = this.priceSplit(priceLst[1]);
+    this.askPrice = this.priceSplit(priceLst[0]);
     this.askPrice.tag = "Ask";
     console.log(this.uuid);
   }
-
-  private initPrice(randomNum: number) {
+  private priceSplit(randomNum: number) {
     var randomPrice = randomNum.toString();
     var intLength = randomPrice.split(".")[0].length;
     var price: price = {
