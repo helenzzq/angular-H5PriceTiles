@@ -1,12 +1,11 @@
 
-<div class="container">
-  <div class="row">
-
+<div id="container">
+  <div class="row col-14">
       <h2>Currency Buy and Sell</h2>
       <div id="index-box">
-      <div class="col-sm-3"
+      <div 
       *ngFor="let trade of tradeInfoList">
-        <currency-tile [uuid]="trade.uuid" [tradeInfo]="trade"></currency-tile>
+        <currency-tile class ="col-sm-3" [uuid]="trade.uuid" [tradeInfo]="trade"></currency-tile>
       </div>
 
       <div class="col-sm-2">
@@ -16,6 +15,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
