@@ -2,7 +2,12 @@
 
 <div class="currency-pair">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="example-button-container">
+      <button mat-mini-fab color="" (click)="onDeleteTile()">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+  </div>
       <mat-form-field appearance="fill" >
         <mat-label>Currency Pair</mat-label>
         <mat-select class="select" [(value)]="tradeInfo.currencyPair"
@@ -12,14 +17,9 @@
           </mat-option>
         </mat-select> 
       </mat-form-field>
-    </div>
-    <div class="col-sm-2">  
-      <div class="example-button-container">
-        <button mat-mini-fab color="warn" (click)="onDeleteTile()">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
-    </div>
+
+  
+
   </div>
 
     <mat-form-field appearance="fill" >

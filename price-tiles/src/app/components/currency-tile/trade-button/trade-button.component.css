@@ -28,16 +28,16 @@
 }
 .trade-type{
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
 }
 .left-num{
     float:left;
-    margin-right: 60px;
-    font-size: 50%;
+    margin-right: 30px;
+    font-size: 80%;
 }
 .right-num{
     float:right;
-    font-size: 50%;
+    font-size: 80%;
 }
 .real-price{
     font-size: 320%;

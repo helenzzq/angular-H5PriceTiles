@@ -63,6 +63,7 @@ h3 {
 .currency-pair {
     display: flex;
     flex-direction: column;
+    min-width: 250px;
     width: auto;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
     background-color: white;
@@ -73,7 +74,8 @@ h3 {
 }
 
 .example-button-container {
-    display: flex;
+    margin-left: 200px;
+    display: inline-block;
     justify-content: center;
     width: 120px;
   }
