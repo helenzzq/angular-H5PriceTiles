@@ -72,9 +72,11 @@ h3 {
     padding: 5px;
 }
 
-.x-button{
-    margin-top: 100%;
-}
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
 
 
 #bid-btn {

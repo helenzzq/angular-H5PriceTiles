@@ -25,7 +25,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatButtonModule} from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatIcon, MatIconModule} from '@angular/material/icon'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TradePanel,
     TradeHistoryComponenet,
     TradeButtonComponent,
-    TradingPopUpComponent
+    TradingPopUpComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatTableModule,
     MatTabsModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule,
   ],
   providers: [DisplayTradeHistoryService,RandomNumGenerator,    TradePanelManagerService],
   bootstrap: [AppComponent]

@@ -13,8 +13,11 @@
       </mat-form-field>
     </div>
     <div class="col-sm-2">  
-      <button mat-button
-      (click)="onDeleteTile()">X</button>
+      <div class="example-button-container">
+        <button mat-mini-fab color="warn" (click)="onDeleteTile()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -31,7 +34,6 @@
   <mat-form-field appearance="fill" floatLabel="always">
     <mat-label>Amount</mat-label>
     <input matInput type="number" [(ngModel)]="tradeInfo.notional"class="example-right-align" placeholder="0" >
-    <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
   </mat-form-field>
   <div class="btns">
