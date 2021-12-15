@@ -13,7 +13,6 @@ import { DisplayTradeHistoryService } from './services/display-trade-history.ser
 import { RandomNumGenerator } from './services/random-num-generator.service';
 import { TradePanelManagerService } from './services/trade-panel-manager.service';
 import { TradeButtonComponent } from './components/currency-tile/trade-button/trade-button.component';
-import { TradingPopUpComponent } from './components/trade-history/trading-pop-up/trading-pop-up.component';
 
 // Angular Material Module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +25,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIcon, MatIconModule} from '@angular/material/icon'
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +35,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TradePanel,
     TradeHistoryComponenet,
     TradeButtonComponent,
-    TradingPopUpComponent,
     
   ],
   imports: [
@@ -52,6 +51,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatSnackBarModule,
     MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [DisplayTradeHistoryService,RandomNumGenerator,    TradePanelManagerService],
   bootstrap: [AppComponent]

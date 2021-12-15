@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { currencyPair, CURRENCY_PAIRS, QUANTITIES, quantity } from 'src/app/data';
 import { TradeInfo } from 'src/app/model/trade-info.model';
@@ -28,6 +29,8 @@ export interface Tile {
 export class CurrencyTile implements OnInit {
   @Input() uuid?: any;
   @Input() tradeInfo!: TradeInfo;
+  tileForm!: FormGroup;
+
 
   bidPrice!: price;
   askPrice!: price;
@@ -43,6 +46,11 @@ export class CurrencyTile implements OnInit {
 
   ngOnInit():void {
     this.initPrice();
+    this.tileForm = new FormGroup({
+      currency_pair_select: new FormControl('', [Validators.required]),
+      amount_select: new FormControl('', [Validators.required])
+    });
+    this.displayTradeHistoryService.tileForm = this.tileForm;
   }
 
   private initPrice() {

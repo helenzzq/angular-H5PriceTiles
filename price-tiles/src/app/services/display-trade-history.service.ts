@@ -1,5 +1,6 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Injectable, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Observable, of, merge, Subject, BehaviorSubject } from 'rxjs';
 import { v4 as uuid } from 'uuid';
@@ -10,6 +11,7 @@ import { TradeInfo } from '../model/trade-info.model';
 @Injectable()
 export class DisplayTradeHistoryService {
 
+    tileForm!: FormGroup;
     tradeHistoryComponent!: TradeHistoryComponenet;
     constructor(private popUp: MatSnackBar) { }
 
@@ -20,11 +22,19 @@ export class DisplayTradeHistoryService {
         BehaviorSubject<TradeInfo[]>(this._tradeHistory).asObservable();
 
     addTradeEntry(tradeEntry: TradeInfo) {
-        this.tradeEntry$.next({ ...tradeEntry, uuid: uuid() })
-        this._tradeHistory.push(tradeEntry);
-        this.tradeHistoryComponent.refreshTradeHistory();
+        if (tradeEntry.currencyPair == "" || tradeEntry.notional == 0) {
+            alert("Please fill in all required fields!")
+            this.tileForm.controls["currency_pair_select"].markAsTouched();
+            this.tileForm.controls["amount_select"].markAsTouched();
+        }
+        else {
+            this.tradeEntry$.next({ ...tradeEntry, uuid: uuid() })
+            this._tradeHistory.push(tradeEntry);
+            this.tradeHistoryComponent.refreshTradeHistory();
+    
+            this.openTradePopUp(tradeEntry)
+        }
 
-        this.openTradePopUp(tradeEntry)
     }
 
     setTradeHistoryComponent(component: TradeHistoryComponenet) {

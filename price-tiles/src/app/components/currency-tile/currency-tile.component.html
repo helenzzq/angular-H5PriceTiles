@@ -2,44 +2,77 @@
 
 <div class="currency-pair">
   <div class="row">
-    <div class="example-button-container">
-      <button mat-mini-fab color="" (click)="onDeleteTile()">
+    <div>
+      <button id="delete-btn" mat-mini-fab color="" (click)="onDeleteTile()">
         <mat-icon>delete</mat-icon>
       </button>
-
+    </div>
+    <div>
+      <form [formGroup]="tileForm">
+        <mat-form-field>
+          <mat-label>Currency Pair</mat-label>
+          <mat-select
+            class="select"
+            [(value)]="tradeInfo.currencyPair"
+            formControlName="currency_pair_select"
+            (selectionChange)="onInitPriceGen()"
+          >
+            <mat-option *ngFor="let cp of currencyPairs" [value]="cp.name">
+              {{ cp.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              tileForm.controls['currency_pair_select'].hasError('required')
+            "
+            >Currency Pair is Required</mat-error
+          >
+        </mat-form-field>
+      </form>
+    </div>
   </div>
-      <mat-form-field appearance="fill" >
-        <mat-label>Currency Pair</mat-label>
-        <mat-select class="select" [(value)]="tradeInfo.currencyPair"
-        (selectionChange)="onInitPriceGen()">
-          <mat-option *ngFor="let cp of currencyPairs" [value]="cp.name">
-            {{cp.name}}
-          </mat-option>
-        </mat-select> 
-      </mat-form-field>
-
-  
-
-  </div>
-
-    <mat-form-field appearance="fill" >
+  <form [formGroup]="tileForm">
+    <mat-form-field>
       <mat-label>Amount</mat-label>
-      <mat-select class="select" [(value)]="tradeInfo.notional">
-        <mat-option *ngFor="let quantity of quantities" [value]="quantity.value">
-          {{quantity.value}}
+      <mat-select
+        class="select"
+        formControlName="amount_select"
+        [(value)]="tradeInfo.notional"
+      >
+        <mat-option
+          *ngFor="let quantity of quantities"
+          [value]="quantity.value"
+        >
+          {{ quantity.value }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="tileForm.controls['amount_select'].hasError('required')"
+        >Amount is Required</mat-error
+      >
     </mat-form-field>
-
-  
-  <mat-form-field appearance="fill" floatLabel="always">
+  </form>
+  <!-- <mat-form-field appearance="fill" floatLabel="always">
     <mat-label>Amount</mat-label>
-    <input matInput type="number" [(ngModel)]="tradeInfo.notional"class="example-right-align" placeholder="0" >
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="tradeInfo.notional"
+      class="example-right-align"
+      placeholder="0"
+    />
     <span matSuffix>.00</span>
-  </mat-form-field>
-  <div class="btns">
-    <app-trade-button id="bid-btn" [tradeInfo]="tradeInfo" [price]="bidPrice"></app-trade-button>
-    <app-trade-button id="ask-btn" [tradeInfo]="tradeInfo" [price]="askPrice"></app-trade-button>
+  </mat-form-field> -->
 
+  <div class="btns">
+    <app-trade-button
+      id="bid-btn"
+      [tradeInfo]="tradeInfo"
+      [price]="bidPrice"
+    ></app-trade-button>
+    <app-trade-button
+      id="ask-btn"
+      [tradeInfo]="tradeInfo"
+      [price]="askPrice"
+    ></app-trade-button>
   </div>
 </div>

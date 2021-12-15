@@ -8,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class BannerComponent implements OnInit {
 
   netWorthToday = 0;
-  todaysDate = new Date();
+  todaysDate!: Date;
 
   ngOnInit(): void {
-
+    setInterval(() => {
+      this.initDate();
+    }, 1000);
   }
 
+  initDate() {
+    this.todaysDate= new Date;
+  }
 
 }

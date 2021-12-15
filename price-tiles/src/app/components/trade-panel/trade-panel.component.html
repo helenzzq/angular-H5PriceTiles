@@ -1,9 +1,9 @@
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
 
       <h2>Currency Buy and Sell</h2>
-
+      <div id="index-box">
       <div class="col-sm-3"
       *ngFor="let trade of tradeInfoList">
         <currency-tile [uuid]="trade.uuid" [tradeInfo]="trade"></currency-tile>
@@ -15,6 +15,7 @@
           (click)="onAddTile()">Add</button>
         </div>
       </div>
+    </div>
 
   </div>
 </div>
