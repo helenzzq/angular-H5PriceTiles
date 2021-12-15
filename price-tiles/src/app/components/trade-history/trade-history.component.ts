@@ -12,7 +12,10 @@ import { DisplayTradeHistoryService,   } from "src/app/services/display-trade-hi
 export class TradeHistoryComponenet implements OnInit {
 
 
+  isHistoryDisplayed: boolean = false;
   dataSource = new MatTableDataSource();
+  enabled: boolean=false;
+
 
   headers: string[] = ['Currency Pair', 'Direction', 'Deal Rate', 'Notional'];
 
@@ -26,9 +29,8 @@ export class TradeHistoryComponenet implements OnInit {
 
   };
 
-
-
   ngOnInit(): void {
+
     this.displayTradeHistoryService.setTradeHistoryComponent(this);
     this.refreshTradeHistory();
     

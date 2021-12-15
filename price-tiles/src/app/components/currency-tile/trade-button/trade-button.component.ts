@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
 import { price } from 'src/app/components/currency-tile/currency-tile.component';
 import { TradeInfo } from 'src/app/model/trade-info.model';

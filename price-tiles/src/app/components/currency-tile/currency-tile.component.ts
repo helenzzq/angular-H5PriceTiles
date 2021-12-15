@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { of } from 'rxjs';
 import { currencyPair, CURRENCY_PAIRS, QUANTITIES, quantity } from 'src/app/data';
 import { TradeInfo } from 'src/app/model/trade-info.model';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
@@ -66,7 +65,7 @@ export class CurrencyTile implements OnInit {
     this.askPrice = this.priceSplit(priceLst[0]);
     this.askPrice.tag = "Ask";
   }
-  
+
 
   onInitPriceGen(){
     this.randomGeneratePrice();

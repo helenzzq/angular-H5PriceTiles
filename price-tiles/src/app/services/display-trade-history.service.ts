@@ -28,10 +28,11 @@ export class DisplayTradeHistoryService {
             this.tileForm.controls["amount_select"].markAsTouched();
         }
         else {
+
             this.tradeEntry$.next({ ...tradeEntry, uuid: uuid() })
             this._tradeHistory.push(tradeEntry);
+            this.tradeHistoryComponent.enabled=true;
             this.tradeHistoryComponent.refreshTradeHistory();
-    
             this.openTradePopUp(tradeEntry)
         }
 
