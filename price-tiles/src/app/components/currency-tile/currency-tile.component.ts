@@ -58,6 +58,7 @@ export class CurrencyTile implements OnInit {
     this.askPrice = this.priceSplit(priceLst[0]);
     this.askPrice.tag = "Ask";
   }
+  
 
   onInitPriceGen(){
     this.randomGeneratePrice();
