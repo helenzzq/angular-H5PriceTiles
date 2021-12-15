@@ -5,7 +5,8 @@
     <div class="col-sm-8">
       <mat-form-field appearance="fill" >
         <mat-label>Currency Pair</mat-label>
-        <mat-select class="select" [(value)]="tradeInfo.currencyPair">
+        <mat-select class="select" [(value)]="tradeInfo.currencyPair"
+        (selectionChange)="onInitPriceGen()">
           <mat-option *ngFor="let cp of currencyPairs" [value]="cp.name">
             {{cp.name}}
           </mat-option>
@@ -30,7 +31,7 @@
   
   <mat-form-field appearance="fill" floatLabel="always">
     <mat-label>Amount</mat-label>
-    <input matInput type="number" [(ngModel)]="tradeInfo.notional"class="example-right-align" placeholder="0" >
+    <input matInput type="number" [(ngModel)]="tradeInfo.notional" class="example-right-align" placeholder="0" >
     <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
   </mat-form-field>

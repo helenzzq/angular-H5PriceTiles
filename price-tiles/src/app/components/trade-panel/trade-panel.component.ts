@@ -12,10 +12,7 @@ import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.s
   
 export class TradePanel implements OnInit {
 
-
-
   tradeInfoList?: TradeInfo[];
-  isDeleting=false;
 
   constructor(private tradePanelManager:
     TradePanelManagerService) { }
@@ -24,12 +21,9 @@ export class TradePanel implements OnInit {
     this.tradeInfoList = this.tradePanelManager.tradeInfoList;
     
     this.onAddTile();
-
   }
   
   onAddTile() {
-
     this.tradePanelManager.addCurrencyTile();
-
   }
 }
