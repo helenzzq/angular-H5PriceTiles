@@ -5,7 +5,8 @@
     <div class="col-sm-8">
       <mat-form-field appearance="fill" >
         <mat-label>Currency Pair</mat-label>
-        <mat-select class="select" [(value)]="tradeInfo.currencyPair">
+        <mat-select class="select" [(value)]="tradeInfo.currencyPair"
+        (selectionChange)="onInitPriceGen()">
           <mat-option *ngFor="let cp of currencyPairs" [value]="cp.name">
             {{cp.name}}
           </mat-option>

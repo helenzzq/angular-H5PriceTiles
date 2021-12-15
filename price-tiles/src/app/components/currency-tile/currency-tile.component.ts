@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { of } from 'rxjs';
 import { currencyPair, CURRENCY_PAIRS, QUANTITIES, quantity } from 'src/app/data';
 import { TradeInfo } from 'src/app/model/trade-info.model';
@@ -27,8 +27,7 @@ export interface Tile {
 })
 export class CurrencyTile implements OnInit {
   @Input() uuid?: any;
-  @Input()
-  tradeInfo!: TradeInfo;
+  @Input() tradeInfo!: TradeInfo;
 
   bidPrice!: price;
   askPrice!: price;
@@ -37,24 +36,37 @@ export class CurrencyTile implements OnInit {
 
   quantities: quantity[] = QUANTITIES;
 
+
   constructor(private displayTradeHistoryService:
     DisplayTradeHistoryService, private numGeneratorService: RandomNumGenerator,private tradePanelManager:
     TradePanelManagerService) { }
 
   ngOnInit():void {
-
-    this.randomGeneratePrice();
-    setInterval(() => {         
-      this.randomGeneratePrice();
-    }, 5000);
+    this.initPrice();
   }
-  private randomGeneratePrice():void {
+
+  private initPrice() {
+    var priceLst = [0.00000, 0.00000];
+    this.bidPrice = this.priceSplit(priceLst[1]);
+    this.askPrice = this.priceSplit(priceLst[0]);
+    this.askPrice.tag = "Ask";
+  }
+
+  private randomGeneratePrice() {
     var priceLst = this.numGeneratorService.generateMultipleRandomNum(2, 5);
     this.bidPrice = this.priceSplit(priceLst[1]);
     this.askPrice = this.priceSplit(priceLst[0]);
     this.askPrice.tag = "Ask";
-    console.log(this.uuid);
   }
+  
+
+  onInitPriceGen(){
+    this.randomGeneratePrice();
+    setInterval(() => {
+      this.randomGeneratePrice();
+    }, 5000);
+  }
+
   private priceSplit(randomNum: number) {
     var randomPrice = randomNum.toString();
     var intLength = randomPrice.split(".")[0].length;
@@ -75,7 +87,7 @@ export class CurrencyTile implements OnInit {
 
   onDeleteTile() {
     this.tradePanelManager.deleteCurrencyTile(this.tradeInfo.uuid)
-
   }
 
 }
+
