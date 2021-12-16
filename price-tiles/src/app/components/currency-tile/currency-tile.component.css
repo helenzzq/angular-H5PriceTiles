@@ -12,6 +12,7 @@ h3 {
 
 .btns{
     display: inline-block;
+    margin-top: 10px;
     width: auto;
 }
 

@@ -28,12 +28,18 @@ export class DisplayTradeHistoryService {
             this.tileForm.controls["amount_select"].markAsTouched();
         }
         else {
+            if (this.checkIfTradeValid(tradeEntry)==true) {
+                this.tradeEntry$.next({ ...tradeEntry, uuid: uuid() })
+                this._tradeHistory.push(tradeEntry);
+                this.tradeHistoryComponent.enabled = true;
+                this.tradeHistoryComponent.refreshTradeHistory();
+                this.openTradePopUp(tradeEntry)
+            }
+            else {
+                alert("You don't have enough amount to sell for " + tradeEntry.currencyPair);
+                this.tileForm.controls["amount_select"].setValue("");
+            }
 
-            this.tradeEntry$.next({ ...tradeEntry, uuid: uuid() })
-            this._tradeHistory.push(tradeEntry);
-            this.tradeHistoryComponent.enabled=true;
-            this.tradeHistoryComponent.refreshTradeHistory();
-            this.openTradePopUp(tradeEntry)
         }
 
     }
@@ -42,22 +48,37 @@ export class DisplayTradeHistoryService {
         this.tradeHistoryComponent = component;
     }
 
+    private checkIfTradeValid(currTrade: TradeInfo): boolean {
+        if (currTrade.direction == "Ask") {
+            var existingCurrencyPair = this._tradeHistory.filter(item => item.currencyPair == currTrade.currencyPair);
+            if (existingCurrencyPair.length!=0) {
+                for (var trade of this._tradeHistory) {
+                    if (trade.currencyPair == currTrade.currencyPair && trade.notional >= currTrade.notional) {
+                        return false;
+                    }
+                }
+            }
+            else {
+                return false;
+            }
+        }
 
-    openTradePopUp( tradeEntry: TradeInfo) {
-        var message =""
+        return true;
+    }
+
+
+    private openTradePopUp(tradeEntry: TradeInfo) {
+        var message = ""
         var message2 = tradeEntry.currencyPair + "@" + tradeEntry.dealRate
         var mySnackBarConfig: MatSnackBarConfig = {
             duration: 10000,
-          }
-
-
-
+        }
         if (tradeEntry.direction === "Bid") {
-            message = "Buy " + tradeEntry.notional +'\n' + message2
+            message = "Buy " + tradeEntry.notional + '\n' + message2
             mySnackBarConfig['panelClass'] = ['snackbar', 'green'];
         }
         else {
-            message = "Sell " + tradeEntry.notional +'\n' + message2
+            message = "Sell " + tradeEntry.notional + '\n' + message2
             mySnackBarConfig['panelClass'] = ['snackbar', 'red'];
         }
         this.popUp.open(message, "X", mySnackBarConfig);

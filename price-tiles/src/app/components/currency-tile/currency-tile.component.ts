@@ -26,10 +26,10 @@ export interface Tile {
   styleUrls: ['./currency-tile.component.css']
 })
 export class CurrencyTile implements OnInit {
+
   @Input() uuid?: any;
   @Input() tradeInfo!: TradeInfo;
   tileForm!: FormGroup;
-
 
   bidPrice!: price;
   askPrice!: price;
