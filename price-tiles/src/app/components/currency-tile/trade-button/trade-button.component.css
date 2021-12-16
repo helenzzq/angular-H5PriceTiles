@@ -32,11 +32,10 @@
 }
 .left-num{
     float:left;
-    font-size: 120%;
+    margin-right: 0;
 }
 .right-num{
-    float:right;
-    font-size: 120%;
+    margin-left:100px;
 }
 .real-price{
     font-size: 320%;

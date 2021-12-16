@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
 import { TradeInfo } from 'src/app/model/trade-info.model';
-import { price } from 'src/app/model/price.model';
+import { Price } from 'src/app/model/price.model';
 
 
 
@@ -12,7 +12,7 @@ import { price } from 'src/app/model/price.model';
 })
 export class TradeButtonComponent implements OnInit {
   @Input() tradeInfo!: TradeInfo;
-  @Input() price!: price;
+  @Input() price!: Price;
 
   constructor(private displayTradeHistoryService:
     DisplayTradeHistoryService) { }

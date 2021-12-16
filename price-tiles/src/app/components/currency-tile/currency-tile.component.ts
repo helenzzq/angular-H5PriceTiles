@@ -1,11 +1,10 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { currencyPair, CURRENCY_PAIRS, QUANTITIES, quantity } from 'src/app/data';
-import { price } from 'src/app/model/price.model';
+import { Price } from 'src/app/model/price.model';
 import { TradeInfo } from 'src/app/model/trade-info.model';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
 import { PriceGeneratorService } from 'src/app/services/price-generator.service';
-import { RandomNumGenerator } from 'src/app/services/random-num-generator.service';
 import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.service';
 
 
@@ -21,8 +20,9 @@ export class CurrencyTile implements OnInit {
   @Input() tradeInfo!: TradeInfo;
   tileForm!: FormGroup;
 
-  bidPrice!: price;
-  askPrice!: price;
+  bidPrice = new Price('', '', '','Bid', 0);;
+  askPrice= new Price('', '', '','Ask', 0);;
+  private prices = [this.askPrice, this.bidPrice];
 
   currencyPairs: currencyPair[] = CURRENCY_PAIRS;
 
@@ -35,7 +35,7 @@ export class CurrencyTile implements OnInit {
 
   ngOnInit(): void {
     var priceLst = [0.00000, 0.00000];
-    this.initBidAskPrice(this.priceGeneratorService.initPrice(priceLst));
+    this.priceGeneratorService.initPrice(this.prices, priceLst);
     this.tileForm = new FormGroup({
       currency_pair_select: new FormControl('', [Validators.required]),
       amount_select: new FormControl('', [Validators.required])
@@ -43,18 +43,11 @@ export class CurrencyTile implements OnInit {
     this.displayTradeHistoryService.tileForm = this.tileForm;
   }
 
-  initBidAskPrice(priceLst:Array<price>) {
-    this.bidPrice = priceLst[1];
-    this.askPrice = priceLst[0];
-    this.askPrice.tag = "Ask";
-    console.log(this.bidPrice);
-  }
-
 
   onInitPriceGen(){
-    this.initBidAskPrice(this.priceGeneratorService.randomGeneratePrice());
+    this.priceGeneratorService.randomGeneratePrice(this.prices);
     setInterval(() => {
-      this.initBidAskPrice(this.priceGeneratorService.randomGeneratePrice());
+      this.priceGeneratorService.randomGeneratePrice(this.prices);
     }, 5000);
     console.log(this.bidPrice);
   }
