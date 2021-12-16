@@ -57,7 +57,7 @@ export class DisplayTradeHistoryService {
             mySnackBarConfig['panelClass'] = ['snackbar', 'green'];
         }
         else {
-            message = "Sell " + tradeEntry.notional
+            message = "Sell " + tradeEntry.notional +'\n' + message2
             mySnackBarConfig['panelClass'] = ['snackbar', 'red'];
         }
         this.popUp.open(message, "X", mySnackBarConfig);
