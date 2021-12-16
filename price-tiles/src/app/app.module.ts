@@ -27,6 +27,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIcon, MatIconModule} from '@angular/material/icon'
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PriceGeneratorService } from './services/price-generator.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     ReactiveFormsModule
   ],
-  providers: [DisplayTradeHistoryService,RandomNumGenerator,    TradePanelManagerService],
+  providers: [PriceGeneratorService,DisplayTradeHistoryService,RandomNumGenerator,    TradePanelManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

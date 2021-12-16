@@ -1,24 +1,14 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { currencyPair, CURRENCY_PAIRS, QUANTITIES, quantity } from 'src/app/data';
+import { price } from 'src/app/model/price.model';
 import { TradeInfo } from 'src/app/model/trade-info.model';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
+import { PriceGeneratorService } from 'src/app/services/price-generator.service';
 import { RandomNumGenerator } from 'src/app/services/random-num-generator.service';
 import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.service';
 
 
-export interface price{
-  firstFourDigit: string;
-  fourthFifthDigit: string;
-  lastDigit: string;
-  tag: string;
-  wholeNum: number;
-}
-
-export interface Tile {
-  currencyPair: currencyPair;
-  notional: quantity;
-}
 
 @Component({
   selector: 'currency-tile',
@@ -40,11 +30,12 @@ export class CurrencyTile implements OnInit {
 
 
   constructor(private displayTradeHistoryService:
-    DisplayTradeHistoryService, private numGeneratorService: RandomNumGenerator,private tradePanelManager:
+    DisplayTradeHistoryService, private priceGeneratorService: PriceGeneratorService,private tradePanelManager:
     TradePanelManagerService) { }
 
-  ngOnInit():void {
-    this.initPrice();
+  ngOnInit(): void {
+    var priceLst = [0.00000, 0.00000];
+    this.initBidAskPrice(this.priceGeneratorService.initPrice(priceLst));
     this.tileForm = new FormGroup({
       currency_pair_select: new FormControl('', [Validators.required]),
       amount_select: new FormControl('', [Validators.required])
@@ -52,45 +43,23 @@ export class CurrencyTile implements OnInit {
     this.displayTradeHistoryService.tileForm = this.tileForm;
   }
 
-  private initPrice() {
-    var priceLst = [0.00000, 0.00000];
-    this.bidPrice = this.priceSplit(priceLst[1]);
-    this.askPrice = this.priceSplit(priceLst[0]);
+  initBidAskPrice(priceLst:Array<price>) {
+    this.bidPrice = priceLst[1];
+    this.askPrice = priceLst[0];
     this.askPrice.tag = "Ask";
-  }
-
-  private randomGeneratePrice() {
-    var priceLst = this.numGeneratorService.generateMultipleRandomNum(2, 5);
-    this.bidPrice = this.priceSplit(priceLst[1]);
-    this.askPrice = this.priceSplit(priceLst[0]);
-    this.askPrice.tag = "Ask";
+    console.log(this.bidPrice);
   }
 
 
   onInitPriceGen(){
-    this.randomGeneratePrice();
+    this.initBidAskPrice(this.priceGeneratorService.randomGeneratePrice());
     setInterval(() => {
-      this.randomGeneratePrice();
+      this.initBidAskPrice(this.priceGeneratorService.randomGeneratePrice());
     }, 5000);
+    console.log(this.bidPrice);
   }
 
-  private priceSplit(randomNum: number) {
-    var randomPrice = randomNum.toString();
-    var intLength = randomPrice.split(".")[0].length;
-    var price: price = {
-      firstFourDigit: '',
-      fourthFifthDigit: '',
-      lastDigit: '',
-      wholeNum: 0,
-      tag: "Bid",
-    };
 
-    price.firstFourDigit = randomPrice.substring(0, intLength +3);
-    price.fourthFifthDigit = randomPrice.substring(intLength + 3, intLength + 5);
-    price.lastDigit = randomPrice.slice(-1);
-    price.wholeNum = randomNum;
-    return price;
-  }
 
   onDeleteTile() {
     this.tradePanelManager.deleteCurrencyTile(this.tradeInfo.uuid)

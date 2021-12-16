@@ -51,9 +51,7 @@ export class DisplayTradeHistoryService {
     private checkIfTradeValid(currTrade: TradeInfo): boolean {
         if (currTrade.direction == "Ask") {
             var existingCurrencyPair = this._tradeHistory.filter(item => item.currencyPair == currTrade.currencyPair);
-            
             if (existingCurrencyPair.length != 0) {
-
                 var sum = existingCurrencyPair.reduce((acc, curr) => acc + curr.notional, 0)
                 if (sum < currTrade.notional) {
                     return false;
