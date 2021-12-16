@@ -10,7 +10,9 @@
     height: auto;
     width: 100%;
 }
-
+img{
+  width: auto;
+}
 #index-box {
     display: inline-flex;
     padding: 5px;
