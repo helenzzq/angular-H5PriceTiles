@@ -1,18 +1,14 @@
-
-<div id="container">
+<div class="container-fluid">
   <div class="row">
     <h1>Currency Buy and Sell</h1>
     <div id="index-box">
-      <div 
-        *ngFor="let trade of tradeInfoList">
-          <currency-tile class ="col-sm-3"
-          [uuid]="trade.uuid"
-          [tradeInfo]="trade"></currency-tile>
+      <div *ngFor="let trade of tradeInfoList">
+        <currency-tile class="col-sm-3" [uuid]="trade.uuid" [tradeInfo]="trade"></currency-tile>
       </div>
 
       <div class="col-sm-1">
-            <button type="button" class="btn btn-success"
-            (click)="onAddTile()">Add</button>
+        <button class="btn btn-success" 
+        (click)="onAddTile()">+</button>
       </div>
     </div>
   </div>

@@ -1,12 +1,11 @@
-#container {
+.container-fluid{
     display: flex;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     flex-direction: column;
-    flex-wrap: wrap;
     margin-left: 10px;
     padding: 0;
     height: auto;
-    width: 95%;
+    width: 90%;
 }
 
 #index-box {
@@ -25,10 +24,6 @@ h1 {
 }
 
 .btn-success{
-    margin-top: 100%;
-    margin-bottom: 100%;
+    margin-top: 150%;
+    margin-bottom: 200%;
 }
-
-
-
-

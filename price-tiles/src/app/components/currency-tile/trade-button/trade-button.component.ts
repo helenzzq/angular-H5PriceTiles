@@ -18,10 +18,7 @@ export class TradeButtonComponent implements OnInit {
     DisplayTradeHistoryService) { }
 
 
-  ngOnInit(): void {
-    console.log(this.price.tag);
-    
-  }
+  ngOnInit(): void {}
 
   addTradeEntry() {
     this.tradeInfo.direction = this.price.tag;
