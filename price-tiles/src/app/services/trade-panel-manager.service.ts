@@ -11,8 +11,6 @@ export class TradePanelManagerService{
 
     addCurrencyTile() {
         var defaultTradeInfo: TradeInfo = new TradeInfo("", "",0, 0,uuid());
-
-
         this.tradeInfoList.push(defaultTradeInfo);
     }
 

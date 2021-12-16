@@ -7,6 +7,7 @@ import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.s
   selector: 'trade-panel',
   templateUrl: './trade-panel.component.html',
   styleUrls: ['./trade-panel.component.css'],
+  providers: [TradePanelManagerService],
 })
 
   
