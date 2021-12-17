@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DisplayTradeHistoryService } from './services/display-trade-history.service';
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,6 @@
 <div id="container">
-      <h1>Trade History</h1>
+  <br>
+      <h1 style="font-family: Arial, Helvetica, sans-serif;">Trade History</h1>
       <img src="../../../assets/no-data-found.png" *ngIf="!enabled" />
       <div class ="row" [ngStyle]="{ visibility: enabled ? 'visible' : 'hidden' }">
         <table mat-table [dataSource]="dataSource">
