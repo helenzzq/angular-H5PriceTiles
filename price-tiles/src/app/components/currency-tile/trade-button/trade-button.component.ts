@@ -8,7 +8,8 @@ import { Price } from 'src/app/model/price.model';
 @Component({
   selector: 'app-trade-button',
   templateUrl: './trade-button.component.html',
-  styleUrls: ['./trade-button.component.css']
+  styleUrls: ['./trade-button.component.css'],
+  providers: [DisplayTradeHistoryService],
 })
 export class TradeButtonComponent implements OnInit {
   @Input() tradeInfo!: TradeInfo;
