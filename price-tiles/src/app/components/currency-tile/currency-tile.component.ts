@@ -5,6 +5,7 @@ import { Price } from 'src/app/model/price.model';
 import { TradeInfo } from 'src/app/model/trade-info.model';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
 import { PriceGeneratorService } from 'src/app/services/price-generator.service';
+import { RandomNumGenerator } from 'src/app/services/random-num-generator.service';
 import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.service';
 
 
@@ -12,7 +13,8 @@ import { TradePanelManagerService } from 'src/app/services/trade-panel-manager.s
 @Component({
   selector: 'currency-tile',
   templateUrl: './currency-tile.component.html',
-  styleUrls: ['./currency-tile.component.css']
+  styleUrls: ['./currency-tile.component.css'],
+  providers: [PriceGeneratorService,DisplayTradeHistoryService, TradePanelManagerService,RandomNumGenerator],
 })
 export class CurrencyTile implements OnInit {
 

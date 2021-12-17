@@ -6,7 +6,8 @@ import { DisplayTradeHistoryService,   } from "src/app/services/display-trade-hi
 @Component({
   selector: 'trade-history',
   templateUrl: './trade-history.component.html',
-  styleUrls: ['./trade-history.component.css']
+  styleUrls: ['./trade-history.component.css'],
+  providers: [DisplayTradeHistoryService],
 })
 
 export class TradeHistoryComponenet implements OnInit {

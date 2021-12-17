@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
+import { Component, Input, OnInit} from '@angular/core';
+import { DisplayTradeHistoryService} from 'src/app/services/display-trade-history.service';
 import { TradeInfo } from 'src/app/model/trade-info.model';
 import { Price } from 'src/app/model/price.model';
 
@@ -8,7 +8,8 @@ import { Price } from 'src/app/model/price.model';
 @Component({
   selector: 'app-trade-button',
   templateUrl: './trade-button.component.html',
-  styleUrls: ['./trade-button.component.css']
+  styleUrls: ['./trade-button.component.css'],
+  providers: [DisplayTradeHistoryService],
 })
 export class TradeButtonComponent implements OnInit {
   @Input() tradeInfo!: TradeInfo;
