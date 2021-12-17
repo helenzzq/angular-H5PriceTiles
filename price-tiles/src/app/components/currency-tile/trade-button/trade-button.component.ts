@@ -1,9 +1,8 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DisplayTradeHistoryService,   } from 'src/app/services/display-trade-history.service';
 import { TradeInfo } from 'src/app/model/trade-info.model';
 import { Price } from 'src/app/model/price.model';
-import * as $ from 'jquery'
-
+import * as $ from 'jQuery';
 
 @Component({
   selector: 'app-trade-button',
@@ -19,14 +18,9 @@ export class TradeButtonComponent implements OnInit {
 
 
   ngOnInit(): void {
-    var styleSelector = document.querySelector("body")
-    if (styleSelector) {
-      console.log(styleSelector.style.cssText);
-      $("body").css("--btn-active-color", "green");
-      // styleSelector.style.cssText = "--btn-active-color:green";
-    }
-    
+
   }
+
 
   addTradeEntry() {
     this.tradeInfo.direction = this.price.tag;

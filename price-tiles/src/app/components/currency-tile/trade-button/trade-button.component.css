@@ -23,7 +23,6 @@
 .trade-btn:active{
     background-color: black;
     box-shadow: 0 1px #999;
-    color:var(--btn-active-color);
     text-shadow: rgb(61, 61, 61);
     transform: translateY(1px);
 }

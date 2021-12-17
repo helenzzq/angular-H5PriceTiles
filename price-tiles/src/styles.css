@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 html, body { height: 100%; }
-body { margin: auto; font-family: Roboto, "Helvetica Neue", sans-serif; --btn-active-color:"green"}
+body { margin: auto; font-family: Roboto, "Helvetica Neue", sans-serif;}
 /* The snackbar - position it at the bottom and in the middle of the screen */
 .green {
     background-color: green;
   }
   .red {
-    background-color: rgb(253, 38, 38);
+    background-color: red;
   }
 .snackbar{
   min-width: 200px; 
