@@ -3,12 +3,13 @@
 <div class="currency-pair" style="background-color:black">
     <div>
       <img src="../../../assets/citi-velocity-logo.jpeg" width="40" height="30">
-      <button id="delete-btn" mat-mini-fab style="color:red;background-color:black;" (click)="onDeleteTile()">
+      <p id="text-title">Velocity</p>
+      <button id="delete-btn" mat-mini-fab  (click)="onDeleteTile()">
         <mat-icon>delete</mat-icon>
-      </button>
+      </button> 
     </div>
     <form [formGroup]="tileForm" >
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label style="color:black;">Currency Pair</mat-label>
         <mat-select style="color: red;"
           [(value)]="tradeInfo.currencyPair" 
@@ -19,18 +20,18 @@
           </mat-option>
         </mat-select>
         <mat-error *ngIf="
-              tileForm.controls['currency_pair_select'].hasError('required')">Currency Pair is Required</mat-error>
+              tileForm.controls['currency_pair_select'].hasError('required')">Required*</mat-error>
       </mat-form-field>
     </form>
     <form [formGroup]="tileForm">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label style="color:black;">Amount</mat-label>
         <mat-select class="select" formControlName="amount_select" [(value)]="tradeInfo.notional">
           <mat-option *ngFor="let quantity of quantities" [value]="quantity.value">
             {{ quantity.value }}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="tileForm.controls['amount_select'].hasError('required')">Amount is Required</mat-error>
+        <mat-error *ngIf="tileForm.controls['amount_select'].hasError('required')">Required*</mat-error>
       </mat-form-field>
     </form>
 

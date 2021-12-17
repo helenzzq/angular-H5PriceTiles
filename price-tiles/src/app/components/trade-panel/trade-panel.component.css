@@ -4,6 +4,7 @@
     flex-direction: column;
     margin-left: 10px;
     width: 90%;
+    background-color: rgb(250, 250, 250);
 }
 
 #index-box {
