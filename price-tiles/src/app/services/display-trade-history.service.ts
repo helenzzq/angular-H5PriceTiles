@@ -1,7 +1,6 @@
-import { isNgTemplate } from '@angular/compiler';
-import { Injectable, Input } from '@angular/core';
+import { Inject, Injectable, Optional } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig ,MatSnackBarModule} from '@angular/material/snack-bar';
 import { Observable, of, merge, Subject, BehaviorSubject } from 'rxjs';
 import { v4 as uuid } from 'uuid';
 import { TradeHistoryComponenet } from '../components/trade-history/trade-history.component';
@@ -13,7 +12,7 @@ export class DisplayTradeHistoryService {
 
     tileForm!: FormGroup;
     tradeHistoryComponent!: TradeHistoryComponenet;
-    constructor(private popUp: MatSnackBar) { }
+    constructor(@Optional() @Inject(MatSnackBar) private popUp: MatSnackBar) { }
 
     private tradeEntry$ = new Subject<TradeInfo>();
     private _tradeHistory: TradeInfo[] = [];
