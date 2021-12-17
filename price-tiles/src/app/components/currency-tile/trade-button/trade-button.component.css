@@ -23,6 +23,7 @@
 .trade-btn:active{
     background-color: black;
     box-shadow: 0 1px #999;
+    color:var(--btn-active-color);
     text-shadow: rgb(61, 61, 61);
     transform: translateY(1px);
 }
@@ -31,14 +32,16 @@
     font-size: 20px;
 }
 .left-num{
-    float:left;
+    float: left;
     margin-right: 0;
+    font-size: medium;
 }
 .right-num{
     margin-left:100px;
+    font-size: medium;
 }
 .real-price{
-    font-size: 320%;
+    font-size: 500%;
     text-align: center;
 }
 
