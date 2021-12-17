@@ -3,8 +3,6 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     flex-direction: column;
     margin-left: 10px;
-    padding: 0;
-    height: auto;
     width: 90%;
 }
 
@@ -21,6 +19,7 @@ h1 {
     margin-left: 10px;
     border-bottom: 1px solid rgb(1, 0, 3);
     width: 98%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn-success{

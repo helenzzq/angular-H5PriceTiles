@@ -7,7 +7,8 @@ h3 {
 }
 .select{
     margin-bottom: 5px;
-    border: #000000;
+    border: white;
+    color:white
 }
 
 .btns{
@@ -15,7 +16,6 @@ h3 {
     margin-top: 10px;
     width: auto;
 }
-
 
 .currency-pair {
     display: flex;
@@ -31,9 +31,16 @@ h3 {
     padding: 5px;
 }
 
-mat-form-field{
+.mat-form-field{
     width: 100%;
+    background-color:white;
 }
+
+.mat-option{
+    background-color:black;
+    color: red;
+}
+
 #delete-btn{
     float: right;
 }

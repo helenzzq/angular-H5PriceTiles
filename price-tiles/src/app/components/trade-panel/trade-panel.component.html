@@ -1,6 +1,8 @@
 <div class="container-fluid">
-  <div class="row">
-    <h1>Currency Buy and Sell</h1>
+  <br>
+  <h1>Currency Buy and Sell</h1>
+
+  <div class="row" style="background-color:black;">
     <div id="index-box">
       <div *ngFor="let trade of tradeInfoList">
         <currency-tile class="col-sm-3" [uuid]="trade.uuid" [tradeInfo]="trade"></currency-tile>
