@@ -54,7 +54,7 @@ import { PriceGeneratorService } from './services/price-generator.service';
     MatIconModule,
     ReactiveFormsModule
   ],
-  providers: [PriceGeneratorService,DisplayTradeHistoryService,RandomNumGenerator,    TradePanelManagerService],
+  providers: [   PriceGeneratorService,DisplayTradeHistoryService,RandomNumGenerator,    TradePanelManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

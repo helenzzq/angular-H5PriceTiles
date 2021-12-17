@@ -1,8 +1,7 @@
-import { isNgTemplate } from '@angular/compiler';
 import { Inject, Injectable, Input, Optional } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig,MatSnackBarModule } from '@angular/material/snack-bar';
-import { Observable, of, merge, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { v4 as uuid } from 'uuid';
 import { TradeHistoryComponenet } from '../components/trade-history/trade-history.component';
 import { TradeInfo } from '../model/trade-info.model';
